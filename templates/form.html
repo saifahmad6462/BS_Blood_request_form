@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head><title>Blood Request Form</title></head>
+<body>
+    <h2>Blood Request Form</h2>
+    <form action="/submit" method="post">
+        Name: <input name="name" required><br><br>
+        Age: <input name="age" type="number" required><br><br>
+        Blood Type: <input name="blood_type" required><br><br>
+        Units Needed: <input name="units" type="number" required><br><br>
+        Hospital: <input name="hospital" required><br><br>
+        Contact No: <input name="contact" required><br><br>
+        Urgency: <select name="urgency">
+            <option>Normal</option>
+            <option>Urgent</option>
+            <option>Critical</option>
+        </select><br><br>
+        Notes: <textarea name="notes"></textarea><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
