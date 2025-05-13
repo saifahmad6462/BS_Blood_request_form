@@ -1,22 +1,39 @@
 <!DOCTYPE html>
-<html>
-<head><title>Blood Request Form</title></head>
-<body>
-    <h2>Blood Request Form</h2>
-    <form action="/submit" method="post">
-        Name: <input name="name" required><br><br>
-        Age: <input name="age" type="number" required><br><br>
-        Blood Type: <input name="blood_type" required><br><br>
-        Units Needed: <input name="units" type="number" required><br><br>
-        Hospital: <input name="hospital" required><br><br>
-        Contact No: <input name="contact" required><br><br>
-        Urgency: <select name="urgency">
-            <option>Normal</option>
-            <option>Urgent</option>
-            <option>Critical</option>
-        </select><br><br>
-        Notes: <textarea name="notes"></textarea><br><br>
-        <button type="submit">Submit</button>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blood Request Form</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-red-100 via-white to-red-200 min-h-screen flex items-center justify-center">
+  <div class="backdrop-blur-md bg-white/30 border border-white/40 shadow-xl rounded-3xl p-10 w-full max-w-xl text-gray-800">
+    <h1 class="text-3xl font-bold text-center text-red-600 mb-6 drop-shadow-md">🩸 Blood Request Form</h1>
+    <form action="/submit" method="POST" class="space-y-5">
+      <input name="name" placeholder="Full Name" required class="w-full p-3 bg-white/50 border border-white/30 rounded-xl outline-none backdrop-blur-md placeholder-gray-700 text-black shadow-inner focus:ring-2 focus:ring-red-300 transition transform hover:scale-105 duration-200" />
+      <input name="age" type="number" placeholder="Age" required class="w-full p-3 bg-white/50 border border-white/30 rounded-xl outline-none backdrop-blur-md placeholder-gray-700 text-black shadow-inner focus:ring-2 focus:ring-red-300 transition transform hover:scale-105 duration-200" />
+      <select name="blood_type" required class="w-full p-3 bg-white/50 border border-white/30 rounded-xl backdrop-blur-md text-black shadow-inner focus:ring-2 focus:ring-red-300 transition transform hover:scale-105 duration-200">
+        <option value="" disabled selected>Select Blood Type</option>
+        <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+        <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+      </select>
+      <input name="units" type="number" placeholder="Units Needed" required class="w-full p-3 bg-white/50 border border-white/30 rounded-xl outline-none backdrop-blur-md placeholder-gray-700 text-black shadow-inner focus:ring-2 focus:ring-red-300 transition transform hover:scale-105 duration-200" />
+      <input name="hospital" placeholder="Hospital Name" required class="w-full p-3 bg-white/50 border border-white/30 rounded-xl outline-none backdrop-blur-md placeholder-gray-700 text-black shadow-inner focus:ring-2 focus:ring-red-300 transition transform hover:scale-105 duration-200" />
+      <input name="contact" placeholder="Contact Number" required class="w-full p-3 bg-white/50 border border-white/30 rounded-xl outline-none backdrop-blur-md placeholder-gray-700 text-black shadow-inner focus:ring-2 focus:ring-red-300 transition transform hover:scale-105 duration-200" />
+      <select name="urgency" required class="w-full p-3 bg-white/50 border border-white/30 rounded-xl backdrop-blur-md text-black shadow-inner focus:ring-2 focus:ring-red-300 transition transform hover:scale-105 duration-200">
+        <option value="" disabled selected>Select Urgency</option>
+        <option>Normal</option><option>Urgent</option><option>Critical</option>
+      </select>
+      <textarea name="notes" placeholder="Additional Notes (optional)" rows="3" class="w-full p-3 bg-white/50 border border-white/30 rounded-xl backdrop-blur-md text-black shadow-inner placeholder-gray-700 focus:ring-2 focus:ring-red-300 transition transform hover:scale-105 duration-200"></textarea>
+      <button type="submit" class="w-full py-3 bg-red-500/80 hover:bg-red-600/90 text-white font-bold rounded-xl shadow-lg backdrop-blur-md transition transform hover:scale-105 duration-200">Submit Request</button>
     </form>
+    <hr class="my-8 border-t border-white/50" />
+    <h2 class="text-xl font-semibold text-red-700 mb-4 text-center">🗑️ Delete a Request</h2>
+    <form action="/delete_entry" method="POST" class="space-y-4">
+      <input name="del_name" placeholder="Full Name of Requestor" required class="w-full p-3 bg-white/50 border border-white/30 rounded-xl placeholder-gray-700 text-black backdrop-blur-md shadow-inner focus:ring-2 focus:ring-red-300 transition transform hover:scale-105 duration-200" />
+      <input name="del_contact" placeholder="Contact Number" required class="w-full p-3 bg-white/50 border border-white/30 rounded-xl placeholder-gray-700 text-black backdrop-blur-md shadow-inner focus:ring-2 focus:ring-red-300 transition transform hover:scale-105 duration-200" />
+      <button type="submit" class="w-full py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl shadow-lg backdrop-blur-md transition transform hover:scale-105 duration-200">Delete Entry</button>
+    </form>
+  </div>
 </body>
 </html>

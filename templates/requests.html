@@ -1,36 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>All Blood Requests</title>
-    <style>
-        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
-        th, td { border: 1px solid #999; padding: 10px; text-align: left; }
-        th { background: #f0f0f0; }
-        button { padding: 10px 15px; background: crimson; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Blood Requests</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h2>📋 All Blood Requests</h2>
-
-    <a href="/download" style="text-decoration:none;">
-        <button>⬇️ Download CSV</button>
-    </a>
-
-    <table>
+<body class="bg-gradient-to-br from-red-100 via-white to-red-200 min-h-screen p-6 flex items-center justify-center">
+  <div class="backdrop-blur-md bg-white/30 border border-white/40 shadow-xl rounded-3xl w-full max-w-7xl p-8 overflow-x-auto">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-3xl font-bold text-red-600 drop-shadow-md">📋 All Blood Requests</h1>
+      <a href="/download" class="bg-red-500/80 hover:bg-red-600 text-white px-4 py-2 rounded-xl shadow-lg backdrop-blur-md transition transform hover:scale-105 duration-200">⬇️ Download CSV</a>
+    </div>
+    {% if headers and data %}
+    <table class="min-w-full text-sm border border-white/40 rounded-xl overflow-hidden backdrop-blur-md bg-white/20 shadow-md">
+      <thead class="bg-white/40 text-gray-800 font-semibold">
         <tr>
-            {% for head in headers %}
-                <th>{{ head }}</th>
-            {% endfor %}
+          {% for head in headers %}
+          <th class="px-4 py-3 border-b border-white/40">{{ head }}</th>
+          {% endfor %}
         </tr>
+      </thead>
+      <tbody class="backdrop-blur-sm">
         {% for row in data %}
-            <tr>
-                {% for col in row %}
-                    <td>{{ col }}</td>
-                {% endfor %}
-            </tr>
+        <tr class="hover:bg-white/30 transform hover:scale-[1.015] transition duration-200 text-black">
+          {% for col in row %}
+          <td class="px-4 py-2 border-b border-white/30">{{ col }}</td>
+          {% endfor %}
+        </tr>
         {% endfor %}
+      </tbody>
     </table>
+    {% else %}
+    <p class="text-lg text-gray-700">No blood requests found.</p>
+    {% endif %}
+  </div>
 </body>
 </html>
-
-
