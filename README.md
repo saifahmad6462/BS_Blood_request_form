@@ -6,10 +6,11 @@ This is a simple web application built with **Python Flask** that allows users t
 
 ##  Features
 
-- 📄 Submit blood request through a form  
-- 📊 View all submitted requests in a table format  
-- 📥 Download all request data as a CSV file  
-- 💾 Data stored locally (no database needed)  
+-  Submit blood request through a form  
+-  View all submitted requests in a table format
+-  Search button to find any specific blood requester details on the table (no download needed)
+-  Download all request data as a CSV file  
+-  Data stored locally (no database needed)  
 
 ---
 
