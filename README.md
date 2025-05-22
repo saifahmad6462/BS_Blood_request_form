@@ -1,4 +1,4 @@
-#  Blood Request Web App (Flask)
+#  Blood Request Web App version 3.0 (Flask)
 
 This is a simple web application built with **Python Flask** that allows users to submit blood donation requests via a form. All data is stored in a local CSV file and can be viewed in a table or downloaded.
 
@@ -7,8 +7,8 @@ This is a simple web application built with **Python Flask** that allows users t
 ##  Features
 
 -  Submit blood request through a form  
--  View all submitted requests in a table format
--  Search button to find any specific blood requester details on the table (no download needed)
+-  View all submitted requests in a table format  
+-  Search button to find any specific blood requester details on the table (no download needed)  
 -  Download all request data as a CSV file  
 -  Data stored locally (no database needed)  
 
@@ -21,7 +21,6 @@ Blood_req/
 ├── app.py
 ├── README.md
 ├── blood_requests.csv        ← (auto-generated after submission)
-├── screenshot.png            ← (optional, add your screenshot)
 └── templates/
     ├── form.html
     └── requests.html
@@ -56,15 +55,7 @@ python app.py
 http://127.0.0.1:5000
 ```
 
----
 
-##  Screenshot
-
-
-
-<!-- ![Screenshot of Blood Request Form](Blood_req.png) -->
-<!-- ![Screenshot of Blood Request Form](Blood_req2.png) -->
-<!-- ![Screenshot of Blood Request Form](Blood_req3.png) -->
 
 ---
 
@@ -79,5 +70,6 @@ http://127.0.0.1:5000
 
 ##  Contact
 
-Feel free to connect via GitHub [@saifahmad6462](https://github.com/saifahmad6462)  
+Feel free to connect via GitHub [@saifahmad6462](https://github.com/saifahmad6462)
+
 
