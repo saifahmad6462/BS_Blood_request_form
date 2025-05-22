@@ -1,9 +1,15 @@
 from flask import Flask, render_template, request, send_file
 import csv
 import os
+<<<<<<< HEAD
+import uuid
+
+app = Flask(__name__)
+=======
 
 app = Flask(__name__)
 
+>>>>>>> f5aeaee12be7dddc6525fd82eca26b7362bb2cff
 CSV_FILE = 'blood_requests.csv'
 
 @app.route('/')
@@ -12,7 +18,13 @@ def form():
 
 @app.route('/submit', methods=['POST'])
 def submit():
+<<<<<<< HEAD
+    request_code = str(uuid.uuid4())[:8].upper()
     data = {
+        'request_code': request_code,
+=======
+    data = {
+>>>>>>> f5aeaee12be7dddc6525fd82eca26b7362bb2cff
         'name': request.form['name'],
         'age': request.form['age'],
         'blood_type': request.form['blood_type'],
@@ -30,6 +42,15 @@ def submit():
             writer.writerow(data.keys())
         writer.writerow(data.values())
 
+<<<<<<< HEAD
+    return f"""
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <title>Thank You</title>
+  <script src='https://cdn.tailwindcss.com'></script>
+=======
     return f'''
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +58,7 @@ def submit():
   <meta charset="UTF-8">
   <title>Thank You</title>
   <script src="https://cdn.tailwindcss.com"></script>
+>>>>>>> f5aeaee12be7dddc6525fd82eca26b7362bb2cff
   <style>
     @keyframes pulseText {{
       0% {{ opacity: 0.3; transform: scale(1); }}
@@ -45,6 +67,17 @@ def submit():
     }}
   </style>
 </head>
+<<<<<<< HEAD
+<body class='bg-gradient-to-br from-red-100 via-white to-red-200 min-h-screen flex items-center justify-center'>
+  <div class='backdrop-blur-md bg-white/30 border border-white/40 shadow-xl rounded-3xl px-10 py-14 text-center max-w-lg w-full'>
+    <h1 class='text-3xl font-bold text-red-600 mb-4'>&#9989; Thank You, {data['name']}!</h1>
+    <p class='text-lg text-gray-800 mb-2'>Your request code is:</p>
+    <p class='text-lg font-bold text-blue-800 mb-6'>{data['request_code']}</p>
+    <p class='text-red-600 text-xl font-semibold animate-pulse' style='animation: pulseText 2s infinite;'>&#128657; Help is on the way...</p>
+    <div class='mt-8 flex justify-center gap-4'>
+      <a href='/' class='bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-xl transition transform hover:scale-105'>New Request</a>
+      <a href='/requests' class='bg-white/60 text-red-600 border border-red-300 px-6 py-2 rounded-xl hover:bg-white/80 transition transform hover:scale-105'>View All</a>
+=======
 <body class="bg-gradient-to-br from-red-100 via-white to-red-200 min-h-screen flex items-center justify-center">
   <div class="backdrop-blur-md bg-white/30 border border-white/40 shadow-xl rounded-3xl px-10 py-14 text-center max-w-lg w-full">
     <h1 class="text-3xl font-bold text-red-600 mb-4">✅ Thank You, {data['name']}!</h1>
@@ -53,11 +86,16 @@ def submit():
     <div class="mt-8 flex justify-center gap-4">
       <a href="/" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-xl transition transform hover:scale-105">New Request</a>
       <a href="/requests" class="bg-white/60 text-red-600 border border-red-300 px-6 py-2 rounded-xl hover:bg-white/80 transition transform hover:scale-105">View All</a>
+>>>>>>> f5aeaee12be7dddc6525fd82eca26b7362bb2cff
     </div>
   </div>
 </body>
 </html>
+<<<<<<< HEAD
+"""
+=======
 '''
+>>>>>>> f5aeaee12be7dddc6525fd82eca26b7362bb2cff
 
 @app.route('/requests')
 def show_requests():
@@ -79,6 +117,8 @@ def download_csv():
     else:
         return "<h3>No CSV file found to download.</h3>"
 
+<<<<<<< HEAD
+=======
 @app.route('/delete_entry', methods=['POST'])
 def delete_entry():
     name = request.form['del_name'].strip().lower()
@@ -104,5 +144,6 @@ def delete_entry():
 
     return f"<h3>✅ Entry for {name.title()} deleted successfully.<br><a href='/'>Back</a></h3>"
 
+>>>>>>> f5aeaee12be7dddc6525fd82eca26b7362bb2cff
 if __name__ == '__main__':
     app.run(debug=True)
